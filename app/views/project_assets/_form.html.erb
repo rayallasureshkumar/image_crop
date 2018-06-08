@@ -1,0 +1,20 @@
+<%= form_for @project_asset, :html => {:multipart => true} do |f| %>
+  <% if @project_asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_asset.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @project_asset.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.file_field :attachment %>
+  <div class="fields">
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
